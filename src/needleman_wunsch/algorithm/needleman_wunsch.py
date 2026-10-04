@@ -1,0 +1,51 @@
+from needleman_wunsch.algorithm.matrix import AlignmentMatrix 
+from needleman_wunsch.algorithm.alignment import Alignment
+from needleman_wunsch.algorithm.scoring import ScoringScheme
+from needleman_wunsch.algorithm.traceback import Traceback
+
+
+class nw:
+    def __init__(self, aligned_A, aligned_B, score: ScoringScheme):
+        self.aligned_A = aligned_A
+        self.aligned_B = aligned_B
+        self.score = score
+
+class NeedlemanWunsch:
+
+    def __init__(self, seqA, seqB, scoring_method):
+        self.seqA = seqA
+        self.seqB = seqB
+        self.scoring = scoring_method
+
+
+    def run(self):
+        matrix = AlignmentMatrix(
+            self.seqA,
+            self.seqB
+        )
+
+        matrix.initialize_matrix(self.scoring.gap)
+        matrix.fill_matrix(self.scoring)
+
+        traceback = Traceback(
+            matrix.matrix,
+            self.seqA,
+            self.seqB,
+            self.scoring
+        )
+
+        moves = traceback.run()
+
+        alignment = Alignment(
+            self.seqA,
+            self.seqB,
+            moves
+        )
+
+        aligned_A, aligned_B = alignment.build()
+
+        result = nw(aligned_A=aligned_A, aligned_B=aligned_B, score=matrix.matrix[-1,-1])
+
+        return result
+
+    
