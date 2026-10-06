@@ -1,5 +1,5 @@
-from needleman_wunsch.algorithm.needleman_wunsch import NeedlemanWunsch
-from needleman_wunsch.algorithm.scoring import ScoringScheme
+from pairwise_alignment.algorithms.needleman_wunsch.algorithm.needleman_wunsch import NeedlemanWunsch
+from pairwise_alignment.core.scoring import ScoringScheme
 
 def test_needleman_wunsch():
     seqA = "GAC"

@@ -1,5 +1,5 @@
 import numpy as np
-import needleman_wunsch.algorithm.scoring as scoring
+import pairwise_alignment.core.scoring as scoring
 
 
 class AlignmentMatrix:
@@ -24,6 +24,7 @@ class AlignmentMatrix:
         
         for i in range(1,lines):
             for j in range(1,columns):
-                self.matrix[i,j] = max(self.matrix[i - 1, j - 1] + scoring_method.score(self.seqA[i - 1], self.seqB[j - 1]),
+                self.matrix[i,j] = max(self.matrix[i - 1, j - 1] + scoring_method.score(self.seqA[i - 1],
+                                    self.seqB[j - 1]),
                                     self.matrix[i-1,j] + scoring_method.gap,
                                     self.matrix[i,j-1] + scoring_method.gap)

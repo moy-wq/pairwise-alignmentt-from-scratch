@@ -1,7 +1,7 @@
 import numpy as np
 
-from needleman_wunsch.algorithm.matrix import AlignmentMatrix
-from needleman_wunsch.algorithm.scoring import ScoringScheme
+from pairwise_alignment.algorithms.needleman_wunsch.algorithm.matrix import AlignmentMatrix
+from pairwise_alignment.core.scoring import ScoringScheme
 
 def test_matrix():
     seqA = "A"

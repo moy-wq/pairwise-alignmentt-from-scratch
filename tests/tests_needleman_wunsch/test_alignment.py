@@ -1,4 +1,4 @@
-from needleman_wunsch.algorithm.alignment import Alignment
+from pairwise_alignment.core.alignment import Alignment
 
 
 def test_build_alignment():
