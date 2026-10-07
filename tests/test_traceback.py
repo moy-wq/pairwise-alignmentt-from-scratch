@@ -1,6 +1,6 @@
-from needleman_wunsch.algorithm.matrix import AlignmentMatrix
-from needleman_wunsch.algorithm.scoring import ScoringScheme
-from needleman_wunsch.algorithm.traceback import Traceback
+from pairwise_alignment.algorithms.needleman_wunsch.algorithm.matrix import AlignmentMatrix
+from pairwise_alignment.core.scoring import ScoringScheme
+from pairwise_alignment.algorithms.needleman_wunsch.algorithm.traceback import Traceback
 
 
 def test_traceback_identical_sequences():

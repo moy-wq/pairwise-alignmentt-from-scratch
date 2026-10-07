@@ -1,14 +1,9 @@
-from needleman_wunsch.algorithm.matrix import AlignmentMatrix 
-from needleman_wunsch.algorithm.alignment import Alignment
-from needleman_wunsch.algorithm.scoring import ScoringScheme
-from needleman_wunsch.algorithm.traceback import Traceback
+from pairwise_alignment.algorithms.needleman_wunsch.algorithm.matrix import AlignmentMatrix 
+from pairwise_alignment.core.alignment import Alignment
+from pairwise_alignment.core.result import AlignedSequence
+from pairwise_alignment.algorithms.needleman_wunsch.algorithm.traceback import Traceback
 
 
-class nw:
-    def __init__(self, aligned_A, aligned_B, score: ScoringScheme):
-        self.aligned_A = aligned_A
-        self.aligned_B = aligned_B
-        self.score = score
 
 class NeedlemanWunsch:
 
@@ -44,7 +39,7 @@ class NeedlemanWunsch:
 
         aligned_A, aligned_B = alignment.build()
 
-        result = nw(aligned_A=aligned_A, aligned_B=aligned_B, score=matrix.matrix[-1,-1])
+        result = AlignedSequence(aligned_A=aligned_A, aligned_B=aligned_B, score=matrix.matrix[-1,-1])
 
         return result
 
